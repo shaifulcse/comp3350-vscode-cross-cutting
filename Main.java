@@ -12,7 +12,7 @@ public class Main {
         screen.login("alice", "wrong");       
 
         repo.databaseDown = true;             // simulate a database crash
-        screen.login("alice", "secret123");   // correct password, but DB is down
+        screen.login("alice", "secret123");   
     }
 }
 
@@ -72,9 +72,9 @@ class LoginScreen {
     void login(String username, String password) {
         try {
             if (service.login(username, password)) System.out.println("Welcome, " + username + "!");
-            else System.out.println("Invalid username or password");  //  shown even when the DB crashed
+            else System.out.println("Invalid username or password");  
         } catch (Exception e) {
-            System.out.println("Something went wrong");               // never reached
+            System.out.println("Something went wrong");               
         }
     }
 }
